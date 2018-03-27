@@ -1,10 +1,33 @@
 let db = require("../../models");
-// let scrapeTechCrunch = require("../../scripts/scrape.js");
+var fetchCtrl = require('../../controllers/fetch');
 module.exports = function(app) {
-  // Route to scrape Tech Crunch App website
-  app.get("/scrape", (req, res) => {
-    // scrapeTechCrunch;
+
+  app.get('/', function (req, res) {
+    db.Headline.find({})
+      .then(dbHeadlines => {
+        console.log(dbHeadlines);
+        res.render("home", {headlines: dbHeadlines})
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  })
+  app.get("/saved", (req, res) => {
+    //   pass in the id param into the findOne query
+    db.Saved.find({})
+      .then(savedData => {
+        console.log(savedData);
+        res.render('saved', {savedData})
+      })
+      .catch(err => {
+        res.json(err);
+      });
   });
+
+  // Route to scrape Tech Crunch App website
+  app.get("/scrape", fetchCtrl.scrape)
+
+////////////////////////////////////////
 
   // Route for all of the headlines
   app.get("/headlines", (req, res) => {
@@ -18,13 +41,23 @@ module.exports = function(app) {
   });
 
   // Route to grab a specific article by id, and populte it with it's note
-  app.get("headlines/:id", (req, res) => {
+  app.get("/headlines/:id", (req, res) => {
     //   pass in the id param into the findOne query
     db.Headline.findOne({
       _id: req.params.id
     })
       // populate the note
-      .populate("note")
+      .populate("notes")
+      .then(dbHeadline => {
+        res.json(dbHeadline);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+  app.post("/saved/:id", (req, res) => {
+    //   pass in the id param into the findOne query
+    db.Saved.create(req.body)
       .then(dbHealdine => {
         res.json(dbHeadline);
       })
@@ -33,10 +66,15 @@ module.exports = function(app) {
       });
   });
 
+
   // Route to save/update Headline associated with Note
-  app.post("headlines/:id", (req, res) => {
+  app.post("/createNote/:id", (req, res) => {
     db.Note.create(req.body).then(dbNote => {
-      return db.Headline.find;
+      db.Headline.findByIdAndUpdate(req.params.id, { $push: { notes: dbNote._id } }, { new: true })
+      .then((response) => {
+        res.send("added note")
+      })
+      
     });
   });
 };

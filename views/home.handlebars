@@ -1,1 +1,30 @@
-{{#each headlines}} {{/each}}
+{{#each headlines}} 
+  <div>
+    <a href={{this.link}} target="_blank">
+    <h4>{{this.title}}</h4>
+
+    </a>
+    <img src={{this.img}} alt="">
+
+    <!-- Large modal -->
+    <button type="button" class="btn btn-primary openModal" data-toggle="modal" data-target="#modal-{{this._id}}" id="myModal" data-articleId="{{this._id}}" data-articleId="{{this._id}}">Leave Comment</button>
+    
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-{{this._id}}" data-articleId="{{this._id}}">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div id="allComments-{{this._id}}">
+
+          </div>
+
+          <input type="text" placeholder="Write Comment" id="commentInput-{{this._id}}">
+          <button id="getNewComments" data-articleId="{{this._id}}">Get Comments</button>
+          <button id="commentButton" data-articleId="{{this._id}}">Leave Comment</button>
+        </div>
+      </div>
+    </div>
+    <button id="savedButton" data-articleId="{{this._id}}" data-articleLink={{this.link}} data-articleTitle="{{this.title}}" data-articleImg={{this.img}}>Save Article</button>
+    
+    <hr>
+
+  </div>
+{{/each}}
