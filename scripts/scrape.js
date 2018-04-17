@@ -2,6 +2,7 @@ var axios = require('axios');
 var cheerio = require('cheerio');
 let db = require("../models");
 function scrapeTechCrunch() {
+  db.Headline.remove();
   axios.get("http://www.techcrunch.com/apps/").then(response => {
     
     let $ = cheerio.load(response.data);

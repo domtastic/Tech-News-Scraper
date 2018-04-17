@@ -30,11 +30,28 @@ app.set("view engine", "handlebars");
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/dgscraper");
+// mongoose.connect("mongodb://localhost/dgscraper");
 
 require("./routes/api/headline-api-routes")(app)
 
-// Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
-});
+// // Start the server
+// app.listen(PORT, function() {
+//   console.log("App running on port " + PORT + "!");
+// });
+
+
+mongoose.connect("mongodb://localhost/dgscraper").then(
+    () => {
+        console.log("Mongo connection open");
+        app.listen(PORT, err => {
+            if (err) {
+                console.log("Something went wrong in Mongo: ", err);
+            } else {
+                console.log("Tech News Scraper App listening on port: " + PORT);
+            }
+        });
+    },
+    err => {
+        console.log("something went wrong ", err);
+    }
+);
