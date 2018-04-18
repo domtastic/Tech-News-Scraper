@@ -4,19 +4,19 @@
         <div class="card-columns">
         {{#each headlines}}
             <div class="card">
-                <img class="card-img-top" src={{this.img}} alt="healine-picture">
+                <a href="{{this.link}}"> <img class="card-img-top" src={{this.img}} alt="healine-picture"></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
+                    <a href="{{this.link}}"><h5 class="card-title">{{this.title}}</h5></a>
                     <button type="button" class="btn btn-primary openModal" data-toggle="modal" data-target="#modal-{{this._id}}" id="myModal" data-articleId="{{this._id}}" data-articleId="{{this._id}}">Leave Comment</button>
-                    <button id="savedButton" data-articleId="{{this._id}}" data-articleLink={{this.link}} data-articleTitle="{{this.title}}" data-articleImg={{this.img}}>Save Article</button>
+                    <button id="savedButton" class="btn btn-info" data-articleId="{{this._id}}" data-articleLink={{this.link}} data-articleTitle="{{this.title}}" data-articleImg={{this.img}}>Save Article</button>
                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-{{this._id}}" data-articleId="{{this._id}}">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div id="allComments-{{this._id}}">
                                 </div>
                                 <input type="text" placeholder="Write Comment" id="commentInput-{{this._id}}">
-                                <button id="getNewComments" data-articleId="{{this._id}}">Get Comments</button>
-                                <button id="commentButton" data-articleId="{{this._id}}">Leave Comment</button>
+                                <button class="btn btn-primary" id="getNewComments" data-articleId="{{this._id}}">Get Comments</button>
+                                <button class="btn btn-secondary" id="commentButton" data-articleId="{{this._id}}">Leave Comment</button>
                             </div>
                         </div>
                     </div>

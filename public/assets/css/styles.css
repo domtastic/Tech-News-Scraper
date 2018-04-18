@@ -2,6 +2,10 @@
     background-image: url("http://wanabo.com/wp-content/uploads/2015/04/technology-e1429134415930-1024x435.jpg");
     height: 300px;
     padding: 65px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.51);
+    -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.51);
+    box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.51);
 }
 
 footer {
@@ -19,7 +23,13 @@ footer {
     z-index: 3;
 }
 
+.card {
+    -webkit-box-shadow: 3px 2px 5px 0px rgba(50, 50, 50, 0.51);
+    -moz-box-shadow:    3px 2px 5px 0px rgba(50, 50, 50, 0.51);
+    box-shadow:         3px 2px 5px 0px rgba(50, 50, 50, 0.51);
+}
+
 .card-img-top {
-    height: 160px;
+    height: 80px;
     width: 300px;
 }

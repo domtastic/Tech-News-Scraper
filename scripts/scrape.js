@@ -11,8 +11,8 @@ function scrapeTechCrunch() {
       let result = {};
       // console.log(element);
       
-      result.img = $(element).find('.post-block__footer').find('img').attr('src');
-      result.title = $(element).find('.post-block__header').find('a').text();
+        result.img = $(element).find('picture').find('img').attr('src');
+        result.title = $(element).find('.post-block__header').find('a').text();
       result.link = $(element).find('.post-block__header').find('a').attr('href');
       console.log(result);
       
@@ -31,3 +31,4 @@ function scrapeTechCrunch() {
 }
 
 module.exports = scrapeTechCrunch;
+
