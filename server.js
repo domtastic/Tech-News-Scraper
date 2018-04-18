@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 const cheerio = require("cheerio");
 
+
 let db = require("./models");
 
 const PORT = 3000;
@@ -28,6 +29,7 @@ app.set("view engine", "handlebars");
 
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
 
 // mongoose.connect("mongodb://localhost/dgscraper");
@@ -38,9 +40,9 @@ require("./routes/api/headline-api-routes")(app)
 // app.listen(PORT, function() {
 //   console.log("App running on port " + PORT + "!");
 // });
-
-
-mongoose.connect("mongodb://localhost/dgscraper").then(
+mongoose.connect(MONGODB_URI, {
+    useMongoClient: true
+}).then(
     () => {
         console.log("Mongo connection open");
         app.listen(PORT, err => {
