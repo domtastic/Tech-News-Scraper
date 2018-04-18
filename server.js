@@ -32,8 +32,9 @@ mongoose.Promise = Promise;
 
 // // Start the server
 
-mongoose.connect(MONGODB_URI,{useMongoClient: true}).then(() => {
-        console.log("Mongo connection open");
+mongoose.connect(MONGODB_URI,{useMongoClient: true});
+
+
         app.listen(PORT, err => {
             if (err) {
                 console.log("Something went wrong in Mongo: ", err);
@@ -41,8 +42,3 @@ mongoose.connect(MONGODB_URI,{useMongoClient: true}).then(() => {
                 console.log("Tech News Scraper App listening on port: " + PORT);
             }
         });
-    },
-    err => {
-        console.log("something went wrong ", err);
-    }
-);
