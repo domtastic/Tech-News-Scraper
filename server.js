@@ -32,10 +32,7 @@ mongoose.Promise = Promise;
 
 // // Start the server
 
-mongoose.connect(MONGODB_URI
-    // ,{useMongoClient: true}
-).then(
-    () => {
+mongoose.connect(MONGODB_URI,{useMongoClient: true}).then(() => {
         console.log("Mongo connection open");
         app.listen(PORT, err => {
             if (err) {
