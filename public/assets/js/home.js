@@ -49,7 +49,7 @@ $(document).on("click", '#commentButton', function (event) {
           var comment = $(`<p>${headline.title}</p><hr>`);
           $(`#allComments-${articleId}`).append(comment);
         });
-      })
+      }).then($(`#commentInput-${articleId}`).val(""));
   })  
 })
 
