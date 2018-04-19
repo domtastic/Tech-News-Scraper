@@ -24,16 +24,18 @@ require("./routes/api/headline-api-routes")(app)
 
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
-console.log(MONGODB_URI);
 mongoose.Promise = Promise;
-
+var MONGODB_URI = "mongodb://localhost/dgscraper";
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+} else {
+    mongoose.connect(MONGODB_URI);
+}
 
 
 
 // // Start the server
 
-mongoose.connect(MONGODB_URI);
 
 
         app.listen(PORT, err => {
