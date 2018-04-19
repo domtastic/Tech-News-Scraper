@@ -6,9 +6,15 @@
                 <div class="card-body">
                     <ul class="list-group">
             {{#each savedData}}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-9">
                     <a href="{{this.link}}"><h3 class="saved-article-title">{{this.title}}</h3></a>
-                    <button data-articleid="{{this._id}}" id="deleteSaved" class="btn btn-danger">DELETE FROM SAVED</button>
+                        </div>
+                        <!--<div class="col-sm-12 col-md-3 text-right">-->
+                    <button data-articleid="{{this._id}}" id="deleteSaved" class="btn btn-danger col-sm-12 col-md-3 text-center">DELETE FROM SAVED</button>
+                        <!--</div>-->
+                    </div>
                 </li>
             {{/each}}
                     </ul>

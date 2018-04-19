@@ -2,16 +2,17 @@ var axios = require('axios');
 var cheerio = require('cheerio');
 let db = require("../models");
 function scrapeTechCrunch() {
+  console.log(db.Headline);
   db.Headline.remove();
   axios.get("http://www.techcrunch.com/apps/").then(response => {
-    
+    console.log("axios get working");
     let $ = cheerio.load(response.data);
     //////////// THERES A BETTER WAY TO DO THIS WITHOUT 2
     $(".post-block").each((i, element) => {
       let result = {};
       // console.log(element);
       
-        result.img = $(element).find('picture').find('img').attr('src');
+        result.img = $(element).find('.post-block__media').find('img').attr('src');
         result.title = $(element).find('.post-block__header').find('a').text();
       result.link = $(element).find('.post-block__header').find('a').attr('href');
       console.log(result);

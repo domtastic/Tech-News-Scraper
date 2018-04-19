@@ -3,9 +3,10 @@ var fetchCtrl = require('../../controllers/fetch');
 module.exports = function(app) {
 
   app.get('/', function (req, res) {
+    console.log("get / working");
     db.Headline.find({})
       .then(dbHeadlines => {
-        console.log(dbHeadlines);
+        console.log("DB headlines", dbHeadlines);
         res.render("home", {headlines: dbHeadlines})
       })
       .catch(err => {
@@ -32,7 +33,7 @@ module.exports = function(app) {
 
   // Route for all of the headlines
   app.get("/headlines", (req, res) => {
-    db.Headlines.find({})
+    db.Headline.find({})
       .then(dbHeadline => {
         res.json(dbHeadline);
       })
