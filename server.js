@@ -8,8 +8,8 @@ const cheerio = require("cheerio");
 
 let db = require("./models");
 
-// var PORT = process.env.PORT || 3000;
-var PORT =  3005;
+var PORT = process.env.PORT || 3000;
+// var PORT =  3005;
 
 
 let app = express();
@@ -26,20 +26,20 @@ require("./routes/api/headline-api-routes")(app);
 
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
-// mongoose.Promise = Promise;
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
-// if (process.env.MONGODB_URI) {
-//     mongoose.connect(process.env.MONGODB_URI);
-// } else {
-//     mongoose.connect(MONGODB_URI);
-// }
+
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 
 
 // // Start the server
 
 
-mongoose.connect("mongodb://localhost/dgscraper").then(()=>{
+// mongoose.connect("mongodb://localhost/dgscraper").then(()=>{
+
     app.listen(PORT, err => {
         if (err) {
             console.log("Something went wrong in Mongo: ", err);
@@ -48,4 +48,4 @@ mongoose.connect("mongodb://localhost/dgscraper").then(()=>{
         }
     });
 
-});
+// });
