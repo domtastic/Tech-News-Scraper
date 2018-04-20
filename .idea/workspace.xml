@@ -17,7 +17,7 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
+            <state relative-caret-position="259">
               <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
@@ -134,8 +134,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="295" />
-    <option name="y" value="31" />
+    <option name="x" value="2057" />
+    <option name="y" value="85" />
     <option name="width" value="1213" />
     <option name="height" value="981" />
   </component>
@@ -268,12 +268,12 @@
       <workItem from="1523938466180" duration="14956000" />
       <workItem from="1524024342353" duration="8978000" />
       <workItem from="1524104594154" duration="7000" />
-      <workItem from="1524110017477" duration="11247000" />
+      <workItem from="1524110017477" duration="11557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35188000" />
+    <option name="totallyTimeSpent" value="35498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="295" y="31" width="1213" height="981" extended-state="0" />
@@ -614,7 +614,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
+        <state relative-caret-position="259">
           <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
