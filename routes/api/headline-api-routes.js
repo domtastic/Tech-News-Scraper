@@ -4,14 +4,15 @@ module.exports = function(app) {
 
   app.get('/', function (req, res) {
     console.log("get / working");
-    db.Headline.find({})
-      .then(dbHeadlines => {
-        console.log("DB headlines", dbHeadlines);
-        res.render("home", {headlines: dbHeadlines})
-      })
-      .catch(err => {
-        res.json(err);
-      });
+    res.send('Helo World')
+    // db.Headline.find({})
+    //   .then(dbHeadlines => {
+    //     console.log("DB headlines", dbHeadlines);
+    //     res.render("home", {headlines: dbHeadlines})
+    //   })
+    //   .catch(err => {
+    //     res.json(err);
+    //   });
   });
 
   app.get("/saved", (req, res) => {

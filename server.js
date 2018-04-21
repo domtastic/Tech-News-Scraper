@@ -29,8 +29,7 @@ require("./routes/api/headline-api-routes")(app);
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
 
 
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
-var MONGODB_URI = `mongodb://<dbuser>:<dbpassword>@ds247619.mlab.com:47619/heroku_kmd3p95k`;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI).then(() => {
 
