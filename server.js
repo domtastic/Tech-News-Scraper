@@ -29,11 +29,16 @@ require("./routes/api/headline-api-routes")(app);
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
 
 console.log(process.env.MONGODB_URI);
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
+let mongoDB;
+if(process.env.MONGODB_URI) {
+    mongoDB = 'mongodb://<dbuser>:<dbpassword>\@ds247619.mlab.com:47619/heroku_kmd3p95k'
+}
+else {
+    mongoDB = "mongodb://localhost/dgscraper"
+}
+
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI, {
-    uri_decode_auth:true
-});
+mongoose.connect(mongoDB);
 
 
     app.listen(PORT, err => {
