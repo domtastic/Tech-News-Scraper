@@ -29,7 +29,7 @@ require("./routes/api/headline-api-routes")(app);
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
+var MONGODB_URI = process.env.MONGOLAB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI).catch((err) => {
    console.log(err);
