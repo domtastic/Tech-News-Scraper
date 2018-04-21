@@ -35,3 +35,7 @@ footer {
     width: 100%;
 }
 
+.card-columns{
+    display: inline-flex;
+}
+
