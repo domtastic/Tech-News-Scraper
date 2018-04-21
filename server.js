@@ -29,16 +29,16 @@ require("./routes/api/headline-api-routes")(app);
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
 
 console.log(process.env.MONGODB_URI);
-let mongoDB;
-if(process.env.MONGODB_URI) {
-    mongoDB = 'mongodb://domtastic:bootcamp18%40ds253889.mlab.com:53889/dbscraper';
-}
-else {
-    mongoDB = "mongodb://localhost/dgscraper"
-}
+// let mongoDB;
+// if(process.env.MONGODB_URI) {
+//     mongoDB = 'mongodb://domtastic:bootcamp1@40ds253889.mlab.com:53889/dbscraper';
+// }
+// else {
+//     mongoDB = "mongodb://localhost/dgscraper"
+// }
 
 mongoose.Promise = Promise;
-mongoose.connect(mongoDB);
+mongoose.connect(process.env.MONGOLAB_BLUE_URI);
 
 
     app.listen(PORT, err => {
