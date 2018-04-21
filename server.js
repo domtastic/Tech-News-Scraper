@@ -31,9 +31,9 @@ require("./routes/api/headline-api-routes")(app);
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI).then(() => {
+mongoose.connect(MONGODB_URI)
 
-console.log('Mongo is connected');
+
     app.listen(PORT, err => {
         if (err) {
             console.log("Something went wrong in Mongo: ", err);
@@ -42,7 +42,7 @@ console.log('Mongo is connected');
         }
     });
 
-}).catch(err=> err);
+
 
 
 
