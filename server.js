@@ -31,7 +31,7 @@ require("./routes/api/headline-api-routes")(app);
 console.log(process.env.MONGODB_URI);
 let mongoDB;
 if(process.env.MONGODB_URI) {
-    mongoDB = 'mongodb://domtastic:bootcamp18\@ds253889.mlab.com:53889/dbscraper';
+    mongoDB = 'mongodb://domtastic:bootcamp18%40ds253889.mlab.com:53889/dbscraper';
 }
 else {
     mongoDB = "mongodb://localhost/dgscraper"
