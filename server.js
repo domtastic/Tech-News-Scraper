@@ -33,7 +33,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI).then(() => {
 
-
+console.log('Mongo is connected');
 
 }).catch(err=> err);
 

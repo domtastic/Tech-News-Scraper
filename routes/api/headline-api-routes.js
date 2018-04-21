@@ -1,17 +1,17 @@
 let db = require("../../models");
 var fetchCtrl = require('../../controllers/fetch');
 module.exports = function(app) {
-    // db.Headline.find({})
-    //     .then(dbHeadlines => {
-    //         console.log("DB headlines", dbHeadlines);
-    //         res.render("home", {headlines: dbHeadlines})
-    //     })
-    //     .catch(err => {
-    //         res.json(err);
-    //     });
+
   app.get('/', function (req, res) {
     console.log("get / working");
-
+      db.Headline.find({})
+          .then(dbHeadlines => {
+              console.log("DB headlines", dbHeadlines);
+              res.render("home", {headlines: dbHeadlines})
+          })
+          .catch(err => {
+              res.json(err);
+          });
   });
 
   app.get("/saved", (req, res) => {
