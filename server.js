@@ -28,7 +28,7 @@ require("./routes/api/headline-api-routes")(app);
 // Connect to the Mongo DB
 // var MONGODB_URI = "mongodb://localhost/dgscraper";
 
-
+console.log(process.env.MONGODB_URI);
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI, {
