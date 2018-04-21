@@ -25,6 +25,6 @@ let HeadlineSchema = new Schema({
     ]
 });
 
-let Headline = mongoose.model('Headlines', HeadlineSchema);
+let Headline = mongoose.model('Headline', HeadlineSchema);
 
 module.exports = Headline;

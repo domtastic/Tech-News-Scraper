@@ -34,16 +34,17 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI).then(() => {
 
 console.log('Mongo is connected');
+    app.listen(PORT, err => {
+        if (err) {
+            console.log("Something went wrong in Mongo: ", err);
+        } else {
+            console.log("Tech News Scraper App listening on port: " + PORT);
+        }
+    });
 
 }).catch(err=> err);
 
-app.listen(PORT, err => {
-    if (err) {
-        console.log("Something went wrong in Mongo: ", err);
-    } else {
-        console.log("Tech News Scraper App listening on port: " + PORT);
-    }
-});
+
 
 // // Start the server
 
