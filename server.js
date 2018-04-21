@@ -31,7 +31,17 @@ require("./routes/api/headline-api-routes")(app);
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dgscraper";
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI).then((data) => {
+
+        app.listen(PORT, err => {
+            if (err) {
+                console.log("Something went wrong in Mongo: ", err);
+            } else {
+                console.log("Tech News Scraper App listening on port: " + PORT);
+            }
+        });
+
+}).catch(err=> err);
 
 
 
@@ -40,12 +50,6 @@ mongoose.connect(MONGODB_URI);
 
 // mongoose.connect("mongodb://localhost/dgscraper").then(()=>{
 
-    app.listen(PORT, err => {
-        if (err) {
-            console.log("Something went wrong in Mongo: ", err);
-        } else {
-            console.log("Tech News Scraper App listening on port: " + PORT);
-        }
-    });
+
 
 // });
